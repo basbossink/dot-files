@@ -1,0 +1,2 @@
+--type-add=textile=.textile
+--type-add=github=.textile,.markdown,.md,.yml,.css,
