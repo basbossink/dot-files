@@ -116,15 +116,39 @@ set selectmode=mouse,key
 set whichwrap=b,s,<,>,[,]
 set number 
 syntax on
+set encoding=utf8
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set autoindent
 set wrapmargin=120
 set textwidth=1256
+set expandtab
+set smarttab
 set magic
+set laststatus=2
+set statusline=
+set statusline+=%-3.3n\ " buffer number
+set statusline+=%f\ " filename
+set statusline+=%h%m%r%w " status flags
+set statusline+=\[%{strlen(&ft)?&ft:'none'}] " file type
+set statusline+=%= " right align remainder
+set statusline+=%k\  " keymap name
+set statusline+=%-14(%l/%L,%c%V%) " line, character
+set statusline+=%<%p%%,%P " file position
+" Show line number, cursor position.
+set ruler
+" Display incomplete commands.
+set showcmd
 imap <C-e> <Esc>
 ab bjb Bas Bossink
-set makeprg=make 
 set autowrite
 colorscheme evening
 filetype plugin on
+nnoremap <silent> <F11> :YRShow<CR>
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
 au BufEnter *.hs compiler ghc
 let g:ghc="/usr/local/bin/ghc"
 let g:haddock_browser="/usr/bin/firefox"
@@ -137,8 +161,3 @@ if has("gui_running")
     set guifont=Courier_New:h11:cDEFAULT
   endif
 endif
-set expandtab
-set ts=4
-set sts=4
-set sw=4
-set smarttab
