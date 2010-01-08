@@ -1,0 +1,24 @@
+[ui]
+ssh = ssh -C
+username = Bas Bossink <bas.bossink@gmail.com>
+
+[extensions]
+tasks=/home/bas/bin/hgext/tasks.py
+hgshelve=/home/bas/bin/hgext/hgshelve.py
+commits=/home/bas/bin/hgext/commits.py
+hgext.record=
+hgext.fetch=
+hgext.convert=
+hgext.patchbomb=
+hgext.rebase=
+hgext.purge=
+[email]
+method = smtp
+[smtp]
+host = smtp.gmail.com
+username =bas.bossink@gmail.com
+from = Bas Bossink <bas.bossink@gmail.com>
+
+[tasks]
+auto.track.new = True
+auto.stash = True

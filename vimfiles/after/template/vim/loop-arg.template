@@ -1,0 +1,13 @@
+VimL:" $Id: loop-arg.template 33 2008-02-19 01:26:11Z luc.hermitte $
+VimL:" ``VimL loop on function parameters'' File Template, Luc Hermitte <hermitte {at} free {dot} fr>
+VimL: let s:value_start  = 'Â¡'
+VimL: let s:value_end    = 'Â¡'
+VimL: let s:reindent     = 1
+VimL: let s:marker_open  = '<+'
+VimL: let s:marker_close = '+>'
+VimL: let s:name = INPUT('Name of the iterator : ')
+let Â¡s:nameÂ¡ = 0
+while Â¡s:nameÂ¡ != a:0
+	let Â¡s:nameÂ¡ = Â¡s:nameÂ¡ + 1
+	<++>
+endwhile<++>
