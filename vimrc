@@ -146,12 +146,12 @@ ab bjb Bas Bossink
 set autowrite
 colorscheme evening
 filetype plugin on
+set foldmethod=syntax
 nnoremap <silent> <F11> :YRShow<CR>
 let g:xml_syntax_folding=1
-au FileType xml setlocal foldmethod=syntax
 au BufEnter *.hs compiler ghc
 let g:ghc="/usr/local/bin/ghc"
-let g:haddock_browser="/usr/bin/firefox"
+let g:haddock_browser="/usr/bin/google-chrome"
 if has("gui_running")
   if has("gui_gtk2")
     set guifont=DejaVu\ Sans\ Mono\ 9
