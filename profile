@@ -14,9 +14,6 @@ if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then
 	. "$HOME/.bashrc"
     fi
-    if [ -f "$HOME/.bash_aliases" ]; then
-	. "$HOME/.bash_aliases"
-    fi
 fi
 
 # set PATH so it includes user's private bin if it exists
