@@ -146,7 +146,7 @@ ab bjb Bas Bossink
 set autowrite
 colorscheme evening
 filetype plugin on
-set foldmethod=syntax
+set foldcolumn=2
 nnoremap <silent> <F11> :YRShow<CR>
 let g:xml_syntax_folding=1
 au BufEnter *.hs compiler ghc
