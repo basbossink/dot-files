@@ -4,3 +4,14 @@
 [github]
 	user = basbossink
 	token = 47aade0c1899082d1b35bd64885889db
+[core]
+	autocrlf = true
+	safecrlf = false
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	last = log -l HEAD
+	unco = checkout
+	unstage = reset HEAD --
