@@ -6,14 +6,11 @@
 *customization:	-color
 #endif
 
-! my preferred font - specified exactly, just to make sure
-#define FONT -b&h-lucidatypewriter-normal-r-normal-sans-12-120-75-75-m-70-iso8859-1
-# The following defaults change the behavior of clients using the
-# X libraries
+! The following defaults change the behavior of clients using the
+! X libraries
 
 *background:    grey90
 *foreground:    black
-*font: FONT
 # The rest of the defaults are client specific
 xterm*Background:	grey90
 xterm*Foreground:	black
@@ -24,7 +21,6 @@ xterm*AllowIconInput:   on
 xterm*AutoRaise:        on
 xterm*termtype:         vt100
 xterm*ttyModes:         intr ^c erase ^h susp ^@ dsusp ^@ kill ^u eof ^d
-XTerm*font: FONT
 XTerm*cursorColor:      black
 XTerm*reverseWrap:      true
 XTerm*scrollKey:        true
