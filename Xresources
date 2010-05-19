@@ -1,7 +1,28 @@
 !!! .Xresources file !!!
 ! Comments start with !, C style #define statements can be used only if
 ! this file is processed with xrdb -merge $HOME/.Xresources
+#define FONT       -*-lucy-medium-*-*-*-10-*-*-*-*-*-*-*
+#define FONT_BOLD  -*-lucy-bold-*-*-*-10-*-*-*-*-*-*-*
+#define COLOR_FG                  #dcdccc
+#define COLOR_BG                  #3f3f3f
 
+#define COLOR_TERM_BLACK          COLOR_BG
+#define COLOR_TERM_DARK_RED       #705050
+#define COLOR_TERM_DARK_GREEN     #60b48a
+#define COLOR_TERM_DARK_YELLOW    #dfaf8f
+#define COLOR_TERM_DARK_BLUE      #506070
+#define COLOR_TERM_DARK_MAGENTA   #dc8cc3
+#define COLOR_TERM_DARK_CYAN      #8cd0d3
+#define COLOR_TERM_LIGHT_GRAY     COLOR_FG
+
+#define COLOR_TERM_DARK_GRAY      #709080
+#define COLOR_TERM_LIGHT_RED      #dca3a3
+#define COLOR_TERM_LIGHT_GREEN    #c3bf9f
+#define COLOR_TERM_LIGHT_YELLOW   #f0dfaf
+#define COLOR_TERM_LIGHT_BLUE     #94bff3
+#define COLOR_TERM_LIGHT_MAGENTA  #ec93d3
+#define COLOR_TERM_LIGHT_CYAN     #93e0e3
+#define COLOR_TERM_WHITE          #ffffff
 #ifdef COLOR
 *customization:	-color
 #endif
@@ -9,22 +30,57 @@
 ! The following defaults change the behavior of clients using the
 ! X libraries
 
-*background:    grey90
-*foreground:    black
-# The rest of the defaults are client specific
-xterm*Background:	grey90
-xterm*Foreground:	black
-xterm*ScrollBar:        on
-xterm*TitleBar:         on
-xterm*TextUnderIcon:    on
-xterm*AllowIconInput:   on
-xterm*AutoRaise:        on
-xterm*termtype:         vt100
-xterm*ttyModes:         intr ^c erase ^h susp ^@ dsusp ^@ kill ^u eof ^d
-XTerm*cursorColor:      black
+*background:    COLOR_BG
+*foreground:    COLOR_FG
+/* Normally, you should not have to edit anything below.  */
+
+#ifdef FONT
+XTerm*font:                    FONT
+#endif
+#ifdef FONT_BOLD
+XTerm*boldFont:                FONT_BOLD
+#endif
+
+#if defined(COLOR_FG) && defined(COLOR_BG)
+XTerm*background:              COLOR_BG
+XTerm*foreground:              COLOR_FG
+XTerm*cursorColor:             COLOR_FG
+XTerm*pointerColorBackground:  COLOR_BG
+XTerm*pointerColor:            COLOR_FG
+#endif
+
+#ifdef COLOR_TERM_BLACK
+XTerm*colorBD:                 COLOR_TERM_LIGHT_YELLOW
+XTerm*colorUL:                 COLOR_TERM_LIGHT_RED
+
+XTerm*color0:                  COLOR_TERM_BLACK
+XTerm*color1:                  COLOR_TERM_DARK_RED
+XTerm*color2:                  COLOR_TERM_DARK_GREEN
+XTerm*color3:                  COLOR_TERM_DARK_YELLOW
+XTerm*color4:                  COLOR_TERM_DARK_BLUE
+XTerm*color5:                  COLOR_TERM_DARK_MAGENTA
+XTerm*color6:                  COLOR_TERM_DARK_CYAN
+XTerm*color7:                  COLOR_TERM_LIGHT_GRAY
+XTerm*color8:                  COLOR_TERM_DARK_GRAY
+XTerm*color9:                  COLOR_TERM_LIGHT_RED
+XTerm*color10:                 COLOR_TERM_LIGHT_GREEN
+XTerm*color11:                 COLOR_TERM_LIGHT_YELLOW
+XTerm*color12:                 COLOR_TERM_LIGHT_BLUE
+XTerm*color13:                 COLOR_TERM_LIGHT_MAGENTA
+XTerm*color14:                 COLOR_TERM_LIGHT_CYAN
+XTerm*color15:                 COLOR_TERM_WHITE
+#endif
+! The rest of the defaults are client specific
+XTerm*visualBell:              true
+Xterm*ScrollBar:        on
+Xterm*TitleBar:         on
+Xterm*TextUnderIcon:    on
+Xterm*AllowIconInput:   on
+Xterm*AutoRaise:        on
+Xterm*termtype:         vt100
+Xterm*ttyModes:         intr ^c erase ^h susp ^@ dsusp ^@ kill ^u eof ^d
 XTerm*reverseWrap:      true
 XTerm*scrollKey:        true
 XTerm*saveLines:        9000
 XTerm*scrollBar:        false
 XTerm*scrollTtyOutput:  false
-
