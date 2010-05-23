@@ -92,3 +92,6 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+EDITOR=/usr/bin/vim
+VISUAL=$EDITOR
+export EDITOR VISUAL
