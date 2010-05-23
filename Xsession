@@ -1,7 +1,5 @@
 #!/bin/bash
 xrdb -merge .Xresources
-xsetroot -solid black
-xset +fp /usr/share/fonts
-xset fp rehash
 setxkbmap us dvorak ctrl:swapcaps terminate:ctrl_alt_bksp
-exec xmonad
+pacman-notifier &
+dbus-launch awesome
