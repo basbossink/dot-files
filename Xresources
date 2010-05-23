@@ -1,8 +1,8 @@
 !!! .Xresources file !!!
 ! Comments start with !, C style #define statements can be used only if
 ! this file is processed with xrdb -merge $HOME/.Xresources
-#define FONT       -*-lucy-medium-*-*-*-10-*-*-*-*-*-*-*
-#define FONT_BOLD  -*-lucy-bold-*-*-*-10-*-*-*-*-*-*-*
+#define FONT                      -*-lucidatypewriter-medium-r-normal-*-12-*-*-*-*-*-*-*      
+#define FONT_BOLD                 -*-lucidatypewriter-bold-r-normal-*-12-*-*-*-*-*-*-*      
 #define COLOR_FG                  #dcdccc
 #define COLOR_BG                  #3f3f3f
 
