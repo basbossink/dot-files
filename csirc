@@ -1,0 +1,5 @@
+(use numbers srfi-98 srfi-1)
+(use readline regex)
+(current-input-port (make-gnu-readline-port))
+(gnu-history-install-file-manager "/home/bas/.csi.history")
+
