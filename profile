@@ -32,6 +32,7 @@ fi
 export PATH=/var/lib/gems/1.8/bin:$PATH
 SSH_ENV="$HOME/.ssh/environment"
 
+# start the ssh-agent
 function start_agent {
   echo "Initializing new SSH agent..."
   /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
@@ -51,3 +52,11 @@ if [ -f "${SSH_ENV}" ]; then
 else
   start_agent;
 fi
+xrdb -merge ~/.Xresources
+setxkbmap us dvorak ctrl:swapcaps terminate:ctrl_alt_bksp
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export EDITOR=vim
+export VISUAL=$EDITOR
+export GOPATH=~/go
+export PATH=~/.cabal/bin:$PATH:~/go/bin:~/bin:~/.gem/ruby/2.1.0/bin
