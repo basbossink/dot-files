@@ -46,11 +46,9 @@ TEXT
    { "full_text" : "Disk ${diskio /dev/nvme0n1p5}" , "color" :
        ${if_match ${diskio /dev/nvme0n1p5}<90}"\#ffffff"${else}"\#ff0000"${endif} },
   { "full_text" : "top ${top name 1} ${top cpu 1} ${top mem 1}" , "color" : "\#ffffff" },
-  { "full_text" : "lan down ${downspeedf enp2s0f1}" , "color" : "\#ffffff" },
-  { "full_text" : "lan up ${upspeedf enp2s0f1}" , "color" : "\#ffffff" },
-  { "full_text" : "wlan down ${downspeedf wlp3s0}" , "color" : "\#ffffff" },
-  { "full_text" : "wlan up ${upspeedf wlp3s0}" , "color" : "\#ffffff" },
-  { "full_text" : "Battery ${battery}" , "color" : "\#ffffff" },
+  { "full_text" : "wlan down ${downspeedf iwm0}" , "color" : "\#ffffff" },
+  { "full_text" : "wlan up ${upspeedf iwm0}" , "color" : "\#ffffff" },
+  { "full_text" : "Battery ${exec apm -l}" , "color" : "\#ffffff" },
   { "full_text" : "Uptime ${uptime}" , "color" : "\#ffffff" },
   { "full_text" : "${time %Y-%m-%d %T %z}" , "color" : "\#ffffff" }
   ],
