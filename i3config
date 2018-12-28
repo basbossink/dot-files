@@ -18,13 +18,13 @@ font pango:DejaVu Sans Mono 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xterm
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec j4-dmenu-desktop
+bindsym $mod+d exec dmenu_run -fn 'pango:DejaVu Sans Mono 24' -i
 
 # change focus
 bindsym $mod+j focus left
@@ -78,46 +78,49 @@ bindsym $mod+a focus parent
 bindcode $mod+c focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
+bindsym $mod+1 workspace 1: comm
+bindsym $mod+2 workspace 2: krus
+bindsym $mod+3 workspace 3: www
+bindsym $mod+4 workspace 4: emacs
+bindsym $mod+5 workspace 5: urxvt
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+9 workspace 9: mon
+bindsym $mod+0 workspace 10: vlc
 
 # move focused container to workspace
-bindsym $mod+Shift+exclam move container to workspace 1
-bindsym $mod+Shift+at move container to workspace 2
-bindsym $mod+Shift+numbersign move container to workspace 3
-bindsym $mod+Shift+dollar move container to workspace 4
-bindsym $mod+Shift+percent move container to workspace 5
+bindsym $mod+Shift+exclam move container to workspace 1: comm
+bindsym $mod+Shift+at move container to workspace 2: krus
+bindsym $mod+Shift+numbersign move container to workspace 3: www
+bindsym $mod+Shift+dollar move container to workspace 4: emacs
+bindsym $mod+Shift+percent move container to workspace 5: urxvt
 bindsym $mod+Shift+asciicircum move container to workspace 6
 bindsym $mod+Shift+ampersand move container to workspace 7
 bindsym $mod+Shift+asterisk move container to workspace 8
-bindsym $mod+Shift+parenleft move container to workspace 9
-bindsym $mod+Shift+parenright move container to workspace 10
+bindsym $mod+Shift+parenleft move container to workspace 9: mon
+bindsym $mod+Shift+parenright move container to workspace 10: vlc
+
+# move workspace accross monitors
+bindsym $mod+m move workspace to output left
+bindsym $mod+b move workspace to output right
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+E exec --no-startup-id setxkbmap us && i3-msg exit 
-bindsym $mod+Shift+P exec --no-startup-id systemctl poweroff
+bindsym $mod+Shift+E exec --no-startup-id setxkbmap us && i3-msg exit
+bindsym $mod+Shift+P exec --no-startup-id doas halt -p
+bindsym $mod+Shift+H exec --no-startup-id doas reboot
 
 bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+min scratchpad show
+bindsym $mod+minus scratchpad show
+
 bindsym $mod+Shift+A exec xscreensaver-command -lock
 
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 4%+ unmute && killall -s SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec amixer -q set Master 4%- unmute && killall -s SIGUSR1 i3status
-bindsym XF86AudioMute exec amixer -q set Master toggle && killall -s SIGUSR1 i3status
 bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86Calculator exec xcalc
+bindsym XF86Calculator exec kcalc
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -156,19 +159,20 @@ new_window none
 new_float none
 workspace_auto_back_and_forth yes
 
-assign [class="Chromium"] 1
-assign [class="Krusader"] 2
-assign [class="Octopi"] 6
-assign [class="CrashPlan"] 7
+assign [class="(?i)slack"] 1: comm
+assign [class="(?i)skypeforlinux"] 1: comm
+assign [class="(?i)krusader"] 2: krus
+assign [class="(?i)chromium-browser"] 3: www
+assign [class="(?i)emacs"] 4: emacs
+assign [class="(?i)vlc"] 10: vlc
 
-exec redshiftgui 
-exec chromium
-exec /opt/crashplan/bin/CrashPlanDesktop
-exec octopi-notifier
-exec octopi -sysupgrade
-exec --no-startup-id i3-msg 'workspace 3; exec xterm'
-exec krusader
+exec redshift -l 51.696544:5.223340
+exec --no-startup-id i3-msg 'workspace 5: urxvt; exec urxvt'
 exec xscreensaver
-exec /opt/dropbox/dropbox
-exec menutray -i
-exec udiskie -a -n -t 
+exec krusader
+exec autocutsel -fork -s PRIMARY
+exec --no-startup-id i3-msg 'workspace 9: mon; exec urxvt -title htop -e htop'
+exec --no-startup-id i3-msg 'workspace 9: mon; exec urxvt -title nload -e nload'
+exec vlc
+exec --no-startup-id i3-msg 'workspace 3: www; exec chrome'
+exec emacs
