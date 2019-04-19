@@ -4,11 +4,24 @@
 [github]
 	user = basbossink
 	token = 47aade0c1899082d1b35bd64885889db
+[core]
+	editor = micro
+	trustctime = false
+	filemode = false
+	autocrlf = false
 [alias]
-	co = checkout
 	br = branch
 	ci = commit
+	cl = clone
+	co = checkout
+	cp = cherry-pick
+	dc = diff --cached
+	dt = difftool
+	last = log -1 HEAD
+	lg = log --graph --abbrev-commit --decorate --date=relative --all --oneline --no-color
+	mt = mergetool
 	st = status
-	last = log -l HEAD
+	sup = submodule update
+	tg = tag --sort=-creatordate
 	unco = checkout
 	unstage = reset HEAD --
