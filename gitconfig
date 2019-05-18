@@ -5,6 +5,10 @@
 	user = basbossink
 	token = 47aade0c1899082d1b35bd64885889db
 [alias]
+	dt = difftool
+	difft = difftool
+	mt = mergetool
+	merget = mergetool
 	co = checkout
 	br = branch
 	ci = commit
@@ -12,3 +16,13 @@
 	last = log -l HEAD
 	unco = checkout
 	unstage = reset HEAD --
+[diff]
+    tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+[merge]
+    tool = meld
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
