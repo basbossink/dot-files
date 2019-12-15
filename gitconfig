@@ -26,3 +26,6 @@
     tool = meld
 [mergetool "meld"]
     cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+[core]
+  pager = cat
+  autocrlf = false

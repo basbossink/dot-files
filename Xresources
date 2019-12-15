@@ -69,15 +69,17 @@
 *color14:                 S_base1
 *color15:                 S_base3
 
-*font: DejaVu Sans Mono:size=9
-XTerm*faceName: DejaVu Sans Mono:style=Book:antialias=false:size=10
+*font: xft:DejaVu Sans Mono:style=Book:antialias=true:size=10
+Emacs.FontBackend: xft
+Emacs.font:DejaVu Sans Mono-10
+XTerm*faceName: xft:DejaVu Sans Mono:style=Book:antialias=true:size=10
 XTerm*font: 7x13
 XTerm*locale: true
 XTerm*termName: xterm-256color
 XTerm*metaSendsEscape: true
 XTerm*saveLines: 10000
 XTerm*fullscreen: never
-urxvt*font: xft:DejaVu Sans Mono:style=Book:antialias=false:size=10
+urxvt*font: xft:DejaVu Sans Mono:style=Book:antialias=true:size=10
 urxvt*locale: true
 urxvt*termName: xterm-256color
 urxvt*metaSendsEscape: true
@@ -90,4 +92,5 @@ Xft.hinting: 0
 Xft.hintstyle: hintnone
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
-Xcursor.theme: big-cursor
+Xcursor*theme: redglass
+Xcursor*size: 32

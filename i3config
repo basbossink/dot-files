@@ -24,7 +24,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -fn 'pango:DejaVu Sans Mono 24' -i
+bindsym $mod+d exec dmenu2_run -fn 'pango:DejaVu Sans Mono 32' -i
 
 # change focus
 bindsym $mod+j focus left
@@ -81,7 +81,7 @@ bindcode $mod+c focus child
 bindsym $mod+1 workspace 1: comm
 bindsym $mod+2 workspace 2: krus
 bindsym $mod+3 workspace 3: www
-bindsym $mod+4 workspace 4: emacs
+bindsym $mod+4 workspace 4: spacevim
 bindsym $mod+5 workspace 5: urxvt
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -111,8 +111,8 @@ bindsym $mod+Shift+C reload
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+E exec --no-startup-id setxkbmap us && i3-msg exit
-bindsym $mod+Shift+P exec --no-startup-id doas halt -p
-bindsym $mod+Shift+H exec --no-startup-id doas reboot
+bindsym $mod+Shift+P exec --no-startup-id doas /sbin/halt -p
+bindsym $mod+Shift+H exec --no-startup-id doas /sbin/reboot
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
@@ -150,8 +150,12 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+
 bar {
-        font pango:DejaVu Sans Mono 10
+    colors {
+    	   background #999999
+    }
+        font pango:DejaVu Sans Mono 12
         position top
         status_command $HOME/bin/conky-i3bar
 }
@@ -161,18 +165,19 @@ workspace_auto_back_and_forth yes
 
 assign [class="(?i)slack"] 1: comm
 assign [class="(?i)skypeforlinux"] 1: comm
-assign [class="(?i)krusader"] 2: krus
-assign [class="(?i)chromium-browser"] 3: www
-assign [class="(?i)emacs"] 4: emacs
+assign [class="(?i)xfe"] 2: krus
+assign [class="(?i)Firefox"] 3: www
+assign [class="(?i)nvim-qt"] 4: spacevim
 assign [class="(?i)vlc"] 10: vlc
 
 exec redshift -l 51.696544:5.223340
 exec --no-startup-id i3-msg 'workspace 5: urxvt; exec urxvt'
 exec xscreensaver
-exec krusader
+exec volumeicon
+exec xfe
 exec autocutsel -fork -s PRIMARY
 exec --no-startup-id i3-msg 'workspace 9: mon; exec urxvt -title htop -e htop'
 exec --no-startup-id i3-msg 'workspace 9: mon; exec urxvt -title nload -e nload'
 exec vlc
-exec --no-startup-id i3-msg 'workspace 3: www; exec chrome'
-exec emacs
+exec --no-startup-id i3-msg 'workspace 3: www; exec firefox'
+exec nvim-qt
